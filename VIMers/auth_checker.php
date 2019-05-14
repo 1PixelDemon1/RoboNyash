@@ -25,7 +25,15 @@ $logs = array(
     
 }
 else{
-        header('Location:/auth.php');
+    if($_GET['quit'] == "true"){
+        header('Location:/welcome_page.php');
+        unset($_COOKIE['username']);
+        
+        setcookie('username', null, -1, '/');
+        session_destroy();
+        
+    }
+     else{header('Location:/auth.php');}
 }
 
 ?>
