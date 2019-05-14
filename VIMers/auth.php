@@ -32,7 +32,7 @@
         </form>
             
     </fieldset>
-
+    <div id = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
     
     
 </body>

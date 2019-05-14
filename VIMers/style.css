@@ -15,12 +15,18 @@ body{
     border-width:1px;
     border-color:black;
     border-style:solid;
-    
+    text-align: center;
     padding-left:0px;
     
 }
 
-
+#backimg{
+    position: absolute;
+    right:5%;
+    bottom:5%;
+    
+    
+}
 
 .header_profile_small{
     position:relative;
