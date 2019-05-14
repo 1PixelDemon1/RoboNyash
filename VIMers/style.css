@@ -19,7 +19,18 @@ body{
     padding-left:0px;
     
 }
-
+.footer{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    left:0px;
+    border-color: black;
+    background-color: lightskyblue;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    border-top:1px solid black;
+    
+}
 #backimg{
     position: absolute;
     right:5%;

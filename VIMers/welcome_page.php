@@ -26,7 +26,9 @@
         
     </div>
     </div>
-
+    <div class = 'footer'>
+        <p>VimersGroup(c) Made Specially For Kvantorium</p>
+    </div>
 </body>
 
 <?php
