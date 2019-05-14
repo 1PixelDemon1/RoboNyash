@@ -3,7 +3,7 @@
 <head>
     <meta charset = "utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>Welcome Page</title>
+    <title>Домашняя Страница</title>
     
 </head>
 <body>
