@@ -1,0 +1,49 @@
+body{
+    background-color: #b6d0f9;
+    color:black;
+    font-family:Fantasy;
+    
+    
+}
+
+.header{
+    position:absolute;
+    top:0px;
+    width:100%;
+    left:0;
+    background-color: black; 
+    border-style:solid;
+    border-radius: 0 0 23px 23px;
+    height:auto;
+    border-width:1px;
+    border-color:black;
+}
+.panel_header{
+    position:relative;
+    width:100%;
+    left:0;
+    height:100px;
+    
+    background-color: darkgray;
+    height:auto;
+}
+.icon_login  img{
+    text-decoration: none;
+    border:none;
+    left:0;
+    
+}
+
+.img_icon{
+    position:absolute;
+    right:50px;
+    top:50px;
+    
+}
+
+#img_logo{
+    position:relative;
+    left:50px;
+    
+    
+}
