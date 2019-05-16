@@ -5,6 +5,51 @@ body{
     
     
 }
+#middle_down{
+    position: absolute;
+    bottom:5%;
+    border-style:solid;
+    border-width:1px;
+    border-color:black;
+    border-radius: 7px;
+    
+}
+#middle_down a{
+    color:red;
+    text-decoration: none;
+    
+}
+#middle_down a:active{
+    color:red;
+    text-decoration: none;
+    
+    
+}
+#middle_down a:checked{
+    color:red;
+    text-decoration: none;
+    
+    
+}
+#center_game{
+    position: relative;
+    width:20%;
+    font-size: 300%;
+    border-radius: 30px;text-align:center;
+    left:45%;
+    top:35%;
+    
+    
+}
+#center_form{
+    position: relative;
+    font-size: 300%;
+    left:45%;
+    top:40%;
+    
+    
+}
+
 .description_in_profile{
     
     position: relative;

@@ -1,17 +1,20 @@
 <?php
 session_start();
-$logs = array(
-    "Denis_It_Master" => "coding",
-    "Arsen" => "cppthebest",
-    "lol" => "lol"
-    
-);
-
-
-
+$phrase = file_get_contents("logs.txt");
+				
+				$finding = $_POST["login"];
+				
+				$first_pos =  strpos($phrase,$finding);
+				$second_pos = strpos($phrase,"|", $first_pos+1);
+				$third_pos = strpos($phrase,"|", $second_pos+1);
+				$fourth_pos = strpos($phrase,'|', $second_pos+1);
+				$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
+				$sixth_pos = strpos($phrase,"|", $fivth_pos+1);
+				
+				
     if(isset($_POST["login"]) && $_POST["login"] != ""  && $_POST["password"] != ""){
     
-    if($logs[$_POST["login"]] == $_POST["password"]){
+    if(substr( $phrase, $second_pos+1 ,$third_pos - $second_pos-1) == $_POST["password"]){
         setcookie("username", $_POST["login"], time() + 3600 * 24);
         $_SESSION["username"] = $_POST["password"];
 
