@@ -9,7 +9,9 @@
 			if($_GET["reg"] == "fail"){
 				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
 			}
-			
+			if($_GET["reg"] == "empty"){
+				echo '<p align = "center" style = "color:red; font-family:arial;">Поля не должны быть пустыми</p>';
+			}
 		}
 		?>
 	<fieldset>

@@ -20,10 +20,20 @@
                 echo '<div class = "img_icon"><a class = "icon_login" href = "person.php"><img src = "images/person.png" width = "100px"></a></div>';
                 
             }
-                //file get contents
+                
                 ?>
-        <div class = "panel_header">
-        
+        <div style = "
+		position:absolute;
+		width:100%;
+		left:0;
+		top:200px;
+		text-align:center;
+		border-radius:23px 23px 0 0;
+		background-color: darkgray;
+		height:auto;">
+			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">О нас</p></div></a>
+			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Вк создателя</p></div></a>
+			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Описание</p></div></a>
     </div>
     </div>
     <div class = 'footer'>

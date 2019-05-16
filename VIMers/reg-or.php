@@ -4,7 +4,7 @@ if(isset($_POST["login"])){
 $file = 'logs.txt';
 
 
-
+if($_POST['login'] !="" && $_POST['password'] !="" && $_POST['name'] !=""){
 if(strpos(file_get_contents('logs.txt'),$_POST["login"]) === FALSE){
 
 $current = file_get_contents($file);
@@ -29,6 +29,11 @@ header('Location:welcome_page.php');
 }
 else{
 	header('Location:reg.php?reg=fail');
+}
+}
+else{
+	header('Location:reg.php?reg=empty');
+	
 }
 }
 else{
