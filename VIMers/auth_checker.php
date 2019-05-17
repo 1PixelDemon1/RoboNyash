@@ -13,14 +13,14 @@ $phrase = file_get_contents("logs.txt");
 				
 				
     if(isset($_POST["login"]) && $_POST["login"] != ""  && $_POST["password"] != ""){
-    
+    if(strpos($phrase,$_POST["login"]) != FALSE){
     if(substr( $phrase, $second_pos+1 ,$third_pos - $second_pos-1) == $_POST["password"]){
         setcookie("username", $_POST["login"], time() + 3600 * 24);
         $_SESSION["username"] = $_POST["password"];
 
         header('Location:/welcome_page.php');
     
-    }
+    }}
     else{
         header('Location:/auth.php');
         

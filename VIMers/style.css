@@ -7,8 +7,8 @@ body{
 }
 #reg_teach{
     position: relative;
-    top:150px;
-    left:50px;
+    top:50px;
+    
     border-style:solid none solid none; 
     border-color: red;
     border-width:1px;
