@@ -19,10 +19,28 @@ $phrase = file_get_contents("logs.txt");
     <title>Профиль</title>
     <meta charset = "utf-8">
     <link href = "style.css" rel = "stylesheet">
+	<style>						
+		.img_logo{
+			position:relative;
+			left:50px;
+			width:169px;
+			background-image: url(images/logo_2.png);
+
+		}
+		.img_logo:hover img{
+			visibility: hidden;
+
+		}
+		.img_logo_a{
+			
+			width:169px;
+			
+		}
+	</style>
 </head>
 <body>
     <div class = "header_personal">
-        <a href = "welcome_page.php"><img id = "img_logo" src = "images/logo_1.png"></a>       
+        <div class = "img_logo_a"><a href = "welcome_page.php"><div class = "img_logo"><img  src = "images/logo_1.png"></div></a></div>>      
         <div class = "img_icon"><a class = "icon_login" href = "auth_checker.php?quit=true"><img src = "images/log-out.png" width = "100px"></a></div>
     <div class = "main_info">
         

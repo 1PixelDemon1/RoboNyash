@@ -49,6 +49,26 @@ $_answer = $_first * $_second;
 	<title>Race</title>
 	<meta charset="utf-8">
 	<link href = "style.css" rel = "stylesheet">
+	<style>						
+		
+		
+		.img_logo{
+			position:relative;
+			left:50px;
+			width:169px;
+			background-image: url(images/logo_2.png);
+
+		}
+		.img_logo:hover img{
+			visibility: hidden;
+
+		}
+		.img_logo_a{
+			
+			width:169px;
+			
+		}
+	</style>
 </head>
 <body>
 	
@@ -84,7 +104,7 @@ $_answer = $_first * $_second;
 		</p>
 	</div>
 	<div class = "header">
-        <a href = "game.php?quit=true"><img id = "img_logo" src = "images/logo_1.png"></a>
+        <div class = "img_logo_a"><a class ="img_logo_a" href = "game.php?quit=true"><div  class = "img_logo"><img src = "images/logo_1.png"></div></a></div>
          
     </div>
 	<div id = "center_form">
