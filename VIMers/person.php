@@ -98,7 +98,7 @@ $phrase = file_get_contents("logs.txt");
 						echo '"></form>';
 						echo '</div>';
 				}
-				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Пользователь"){																																		
+				if(substr($phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Пользователь"){																																		
 					echo '<div style = "position: absolute;
 							right:5%;
 							bottom:5%;

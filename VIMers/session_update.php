@@ -1,5 +1,4 @@
-<?php
-	
+<?php	
 	if(isset($_POST["name_session"])){
 		$phrase_2 = file_get_contents("sessions.txt");
 		$finding = $_COOKIE["username"];
@@ -11,7 +10,7 @@
 		
 		
 		file_put_contents("sessions.txt", str_replace($replace,"(|".$_COOKIE['username']."|".$_POST["name_session"]."|)",$phrase_2));
-		header("Location:person.php");
+		header('Location:person.php?ans=$_COOKIE["username"]');
 		
 	}
 	else{

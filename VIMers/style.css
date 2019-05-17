@@ -5,6 +5,15 @@ body{
     
     
 }
+#reg_teach{
+    position: relative;
+    top:150px;
+    left:50px;
+    border-style:solid none solid none; 
+    border-color: red;
+    border-width:1px;
+    width:15%;
+}
 .bottom_right{
     position: absolute;
     right:5%;
@@ -151,6 +160,34 @@ body{
     border:none;
     left:0;
     
+}
+
+.middle_center{
+    position:absolute;
+    top:40%;
+    left:30%;
+    width:40%;
+    padding:10px;
+    
+
+}
+.white_background_borders{
+    background-color: white;
+    border-color: black;
+    border-style: solid none solid none;
+    border-width:1px;
+    
+}
+.red_text{
+    color:red;
+    
+    
+}
+
+#long_line{
+    width:40%;
+    height:100px;
+    font-size:125%;
 }
 
 .img_icon{

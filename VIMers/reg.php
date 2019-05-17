@@ -24,4 +24,6 @@
 		</form>
 	</fieldset>
 	<div id = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
+        <div id = "reg_teach"><a href = "reg_teach.php"><p>Регистрация учителя</p></a></div>
+
 </body>
