@@ -9,17 +9,14 @@
 			if($_GET["reg"] == "fail"){
 				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
 			}
-			if($_GET["reg"] == "empty"){
-				echo '<p align = "center" style = "color:red; font-family:arial;">Поля не должны быть пустыми</p>';
-			}
 		}
 		?>
 	<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
-			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name"></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login"></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password"></p>
+			<p><input required style = "width:30%;"type = "text" placeholder="Имя" name = "name"></p>
+			<p><input required style = "width:30%;" type = "text" placeholder="Логин" name = "login"></p>
+			<p><input required style = "width:30%;" type = "text" placeholder="Пароль" name = "password"></p>
 			<input type = "submit">
 		</form>
 	</fieldset>

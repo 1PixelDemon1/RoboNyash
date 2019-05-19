@@ -7,7 +7,28 @@
 <body>
 <?php
 if($_POST["reg"] != file_get_contents('password.txt')){
-    echo '
+    
+	if($_GET["reg"] == "fail"){
+		if(isset($_GET["reg"])){
+			if($_GET["reg"] == "fail"){
+				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
+	}}
+    echo '<fieldset>
+		<legend>Зарегестрируйтесь сейчас</legend>
+		<form action = "reg-or.php" method = "POST">
+			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required></p>
+			<input type = "submit">
+		</form>
+	</fieldset>';
+
+    
+		
+		
+	}
+	else{
+	echo '
             <div class = "middle_center white_background_borders">
                 <form align = "center" action = "reg_teach.php" method="post">
                     <input  required id = "long_line" type = "password" name = "reg" placeholder = "Введите пароль регестрации">
@@ -25,23 +46,23 @@ if($_POST["reg"] != file_get_contents('password.txt')){
                 
             }
     
-    
-}
+    }
+	
+				}
 else{
-    
+    if(isset($_GET["reg"])){
+			if($_GET["reg"] == "fail"){
+				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
+	}}
     echo '<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
-			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher"></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login"></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password"></p>
+			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required></p>
 			<input type = "submit">
 		</form>
-	</fieldset>
-        
-    
-    
-                ';
+	</fieldset>';
 
         }
 

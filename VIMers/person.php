@@ -85,7 +85,15 @@ $phrase = file_get_contents("logs.txt");
 					$second_pos_2 = strpos($phrase_2,"|", $first_pos_2+1);
 					$third_pos_2 = strpos($phrase_2,"|", $second_pos_2+1);
 					$fourth_pos_2 = strpos($phrase,'|', $second_pos_2+1);
-						echo '<div style = "position: absolute;
+						
+					echo '<div class = "bottom_left_border">
+							<h4>Пароль регистрации учителя</h4>
+							<p>';
+					echo file_get_contents("password.txt");		
+					
+					echo '</p>
+								</div>';
+					echo '<div style = "position: absolute;
 							right:5%;
 							bottom:5%;
 							border-width: 3px;

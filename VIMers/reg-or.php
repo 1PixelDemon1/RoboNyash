@@ -34,8 +34,12 @@ if(isset($_POST["name_teacher"])){
     header('Location:welcome_page.php');    
     
     
-        }    
-    }
+        }
+	else{
+		header('Location:reg_teach.php?reg=fail');
+		}   
+ 
+		}
 }
 else{
 if(isset($_POST["login"])){

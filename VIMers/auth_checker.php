@@ -20,7 +20,13 @@ $phrase = file_get_contents("logs.txt");
 
         header('Location:/welcome_page.php');
     
-    }}
+	    }
+		else{
+			
+			header('Location:/auth.php');
+		}
+	
+	}
     else{
         header('Location:/auth.php');
         

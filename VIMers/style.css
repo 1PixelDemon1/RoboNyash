@@ -23,7 +23,16 @@ body{
     border-style:solid none solid none;
 }
 
-
+.bottom_left_border{
+        position:absolute;
+        left: 7%;
+        bottom:7%;
+        width:15%;
+        border-radius:10px;
+        border-style:solid;
+        background-color: white;
+        text-align: center;
+}
 #middle_down{
     position: absolute;
     bottom:5%;
@@ -31,7 +40,7 @@ body{
     border-width:3px;
     border-color:black;
     border-radius: 7px;
-    
+    background-color: white;
 }
 #middle_down a{
     color:red;
@@ -187,7 +196,7 @@ body{
 #long_line{
     width:40%;
     height:100px;
-    font-size:125%;
+    font-size:100%;
 }
 
 .img_icon{
