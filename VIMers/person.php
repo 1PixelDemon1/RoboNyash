@@ -3,7 +3,7 @@ session_start();
 if(!isset($_COOKIE["username"]) && !isset($_SESSION["username"])){
 	header("Location:welcome_page.php");
 }
-
+$_SESSION['game'] = "false";
 $phrase = file_get_contents("logs.txt");
 				
 				$finding = $_COOKIE["username"];
@@ -41,7 +41,7 @@ $phrase = file_get_contents("logs.txt");
 <body>
     <div class = "header_personal">
         <div class = "img_logo_a"><a href = "welcome_page.php"><div class = "img_logo"><img  src = "images/logo_1.png"></div></a></div>>      
-        <div class = "img_icon"><a class = "icon_login" href = "auth_checker.php?quit=true"><img src = "images/log-out.png" width = "100px"></a></div>
+        <div class = "img_icon"><a class = "icon_login" href = "person.php?quit=true"><img src = "images/log-out.png" width = "100px"></a></div>			/========================/
     <div class = "main_info">
         
         <div class = "description_in_profile">
@@ -75,7 +75,26 @@ $phrase = file_get_contents("logs.txt");
     </div>
 		
     </div>
-	
+	<?php if(isset($_GET["quit"])){
+			echo '
+				<div style = "position:absolute;background-color:white;border-radius:30px;width:50%;height:40%;left:25%;padding:30px;top:30%;">
+					<fieldset>
+						<legend align = "center">Вы действительно хотите выйти?</legend>
+						<form align = "center" method = "post" action = "auth_checker.php?quit=true"><input type = "submit" value = "Да"></form>
+						<form align = "center" method = "post" action = "person.php"><input type = "submit" value = "Нет"></form>
+						
+
+					</fieldset>
+
+
+				</div>
+
+
+
+				';
+			
+		}
+		?>
     <?php
 				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Преподаватель" || substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Админ"){
 					$phrase_2 = file_get_contents("sessions.txt");

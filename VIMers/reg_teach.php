@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_COOKIE["username"]) && isset($_SESSION["username"])){
+	header("Location:welcome_page.php");
+}
+	
+	
+	?>
+
 <head>
     <meta charset = "utf-8">
     <title>Регистрация</title>

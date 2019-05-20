@@ -4,15 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Download/OSPanel/domains/VIMers/style.css</file>
-            <file>file:/D:/Download/OSPanel/domains/VIMers/auth.php</file>
-            <file>file:/D:/Download/OSPanel/domains/VIMers/session_update.php</file>
+            <file>file:/D:/Download/OSPanel/domains/VIMers/password.txt</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/welcome_page.php</file>
-            <file>file:/D:/Download/OSPanel/domains/VIMers/game.php</file>
+            <file>file:/D:/Download/OSPanel/domains/VIMers/game_checker.php</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/reg_teach.php</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/logs.txt</file>
-            <file>file:/D:/Download/OSPanel/domains/VIMers/person.php</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/reg.php</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/reg-or.php</file>
+            <file>file:/D:/Download/OSPanel/domains/VIMers/auth.php</file>
+            <file>file:/D:/Download/OSPanel/domains/VIMers/session_update.php</file>
+            <file>file:/D:/Download/OSPanel/domains/VIMers/game.php</file>
+            <file>file:/D:/Download/OSPanel/domains/VIMers/person.php</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/sessions.txt</file>
             <file>file:/D:/Download/OSPanel/domains/VIMers/auth_checker.php</file>
         </group>
