@@ -5,6 +5,19 @@ body{
     
     
 }
+.block_of_text{
+    position: absolute;
+    width:70%;
+    left:5%;
+    height:auto;
+    display:block;
+    border-radius: 15px;
+    background-color: white;
+    padding-left:10%;
+    padding-right:10%;
+}
+
+
 #reg_teach{
     position: relative;
     top:50px;

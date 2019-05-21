@@ -31,7 +31,7 @@
 		border-radius:23px 23px 0 0;
 		background-color: darkgray;
 		height:auto;">
-			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">О нас</p></div></a>
+			<a href = "about_us.php"><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">О нас</p></div></a>
 			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Вк создателя</p></div></a>
 			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Описание</p></div></a>
     </div>

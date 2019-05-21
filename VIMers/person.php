@@ -79,7 +79,7 @@ $phrase = file_get_contents("logs.txt");
              <div class = "header_profile_small">
                 <p>Сменить пароль</p>
              </div>
-		<p><form action = "change_password.php" method = "post"><input type = "text" placeholder="Новый пароль" style = 'width:70%;' ><input type = "submit" style = 'width:25%;' value = "OK"></form></p>
+		<p><form action = "change_password.php" method = "post"><input type = "text" placeholder="Новый пароль" style = 'width:70%;' name ="new_password" ><input type = "submit" style = 'width:25%;' value = "OK"></form></p>
         </div>
         
 			
