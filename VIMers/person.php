@@ -86,7 +86,8 @@ $phrase = file_get_contents("logs.txt");
 			
 			
     </div>
-		
+    
+        
     </div>
 	<?php if(isset($_GET["quit"])){
 			echo '
@@ -181,5 +182,11 @@ $phrase = file_get_contents("logs.txt");
 
 					}
 				?>
+
+    <div class = "bottom_left">
+            <a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
+            </div>
+        
+
 </body>
 

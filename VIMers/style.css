@@ -9,6 +9,7 @@ body{
     position: absolute;
     width:70%;
     left:5%;
+    top:5%;
     height:auto;
     display:block;
     border-radius: 15px;
@@ -34,6 +35,16 @@ body{
     border-width: 3px;
     border-color:aqua;
     border-style:solid none solid none;
+}
+
+.bottom_left{
+    position: absolute;
+    left:5%;
+    bottom:5%;
+    border-width: 3px;
+    border-color:blue;
+    border-style:solid none solid none;
+
 }
 
 .bottom_left_border{
@@ -78,7 +89,7 @@ body{
     font-size: 300%;
     border-radius: 30px;text-align:center;
     left:45%;
-    top:35%;
+    top:350px;
     
     
 }
@@ -86,7 +97,7 @@ body{
     position: relative;
     font-size: 300%;
     left:45%;
-    top:40%;
+    top:400px;
     
     
 }
@@ -117,7 +128,7 @@ body{
     border-top:1px solid black;
     
 }
-#backimg{
+.backimg{
     position: absolute;
     right:5%;
     bottom:5%;

@@ -33,7 +33,7 @@
 	<a href = "reg.php"><div id = "middle_down">
 		<p style = "color:red;">Зарегестрируйтесь</p>
 			</div></a>		
-    <div id = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
+    <div class = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
     
     
 </body>
