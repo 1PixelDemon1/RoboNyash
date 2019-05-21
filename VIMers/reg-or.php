@@ -62,7 +62,11 @@ $current .= 'Пользователь';
 $current .= '|)';
 
 file_put_contents($file, $current);
-	
+
+
+fopen("results/".$_POST['login'].".txt",w);
+
+
 $_SESSION["username"] = $_POST['login'];
 setcookie("username", $_POST["login"], time() + 3600 * 24);
 header('Location:welcome_page.php');

@@ -13,7 +13,13 @@ $phrase = file_get_contents("logs.txt");
 				$third_pos = strpos($phrase,"|", $second_pos+1);				
 				$fourth_pos = strpos($phrase,"|", $third_pos+1);
 				$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
-?>
+
+				if(isset($_POST["No"])){
+					file_put_contents('results/'.$_COOKIE['username'].'.txt',file_get_contents('results/'.$_COOKIE['username'].'.txt')." Ваш ответ: Нет \n");
+					
+				}
+				
+				?>
 
 <head>
     <title>Профиль</title>
@@ -67,6 +73,13 @@ $phrase = file_get_contents("logs.txt");
                 <p>Логин</p>
              </div>
                 <p><?php echo $_COOKIE['username'];?></p>
+        </div>
+        
+	<div class = "description_in_profile">
+             <div class = "header_profile_small">
+                <p>Сменить пароль</p>
+             </div>
+		<p><form action = "change_password.php" method = "post"><input type = "text" placeholder="Новый пароль" style = 'width:70%;' ><input type = "submit" style = 'width:25%;' value = "OK"></form></p>
         </div>
         
 			
