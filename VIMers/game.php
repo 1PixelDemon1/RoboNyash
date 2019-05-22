@@ -3,7 +3,7 @@ session_start();
 
 
 
-if((!isset($_COOKIE["username"]) && !isset($_SESSION["username"])) || $_SESSION['game'] == "false"){
+if((!isset($_COOKIE["username"]) && !isset($_SESSION["username"])) || $_SESSION['game'] == "false" || !isset($_SESSION['game'])){
 	header("Location:welcome_page.php");
 
 	

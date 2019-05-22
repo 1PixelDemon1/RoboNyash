@@ -10,10 +10,23 @@ if(!isset($_COOKIE["username"]) && !isset($_SESSION["username"])){
 }
 if(isset($_COOKIE['username'])){
     $text = file("results/".$_COOKIE["username"].".txt");        
+	if(file_get_contents("results/".$_COOKIE["username"].".txt") == ""){
+		header("Location:person.php");
+		
+	}
+	
 }
 else{
     $text = file("results/".$_SESSION["username"].".txt");            
+    if(file_get_contents("results/".$_SESSION["username"].".txt") == ""){
+		header("Location:person.php");
+		
+	}
+	
 }
+
+
+
 
 ?>
 <head>

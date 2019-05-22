@@ -173,10 +173,26 @@ $phrase = file_get_contents("logs.txt");
 					
 				}
 				if(substr($phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Пользователь"){																																		
-					echo '<div class = "bottom_left">
-            <a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
-            </div>
-    ';
+					if(isset($_COOKIE['username'])){						
+						if(file_get_contents("results/".$_COOKIE["username"].".txt") != ""){
+							header("Location:person.php");
+							echo '<div class = "bottom_left">
+							<a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
+							</div>';
+					
+						}
+					}
+					else{						
+						if(file_get_contents("results/".$_SESSION["username"].".txt")  != ""){
+							echo '<div class = "bottom_left">
+							<a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
+							</div>';
+					
+						}
+					}
+
+					
+					
 					echo '<div style = "position: absolute;
 							right:5%;
 							bottom:5%;
@@ -195,11 +211,14 @@ $phrase = file_get_contents("logs.txt");
 								$first_pos_3 =  strpos($file,"|",$third_pos_3+1);
 								$second_pos_3 = strpos($file,"|", $first_pos_3+1);
 								$third_pos_3 = strpos($file,"|", $second_pos_3+1);				
-								echo '<option value="';
-								echo substr($file,$first_pos_3 + 1, $second_pos_3 - $first_pos_3-1); 
-								echo '">';
-								echo substr($file,$first_pos_3 + 1, $second_pos_3 - $first_pos_3-1); 
-								echo '</option>';
+								$fourth_pos_3 = strpos($phrase,"|", $third_pos_3+1);
+								if(substr($file,$second_pos_3 + 1, $third_pos_3 - $second_pos_3-1) != ""){
+									echo '<option value="';
+									echo substr($file,$first_pos_3 + 1, $second_pos_3 - $first_pos_3-1); 
+									echo '">';
+									echo substr($file,$first_pos_3 + 1, $second_pos_3 - $first_pos_3-1); 
+									echo '</option>';
+									}
 								$pos = $third_pos_3 = strpos($file,"|", $second_pos_3+1);
 
 							}	

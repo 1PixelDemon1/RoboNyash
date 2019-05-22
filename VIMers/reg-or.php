@@ -17,7 +17,7 @@ if(isset($_POST["name_teacher"])){
     $current .= $_POST['name_teacher'];
     $current .= '|';
     $current .= 'Преподаватель';
-    $current .= '|)';
+    $current .= "|)\n";
 
     file_put_contents($file, $current);
 	if(isset($_SESSION["reg"])){
@@ -28,7 +28,7 @@ if(isset($_POST["name_teacher"])){
     $phrase_2 .= "(|";
     $phrase_2 .= $_POST["login"];
     $phrase_2 .= "|";
-    $phrase_2 .= "|)";
+    $phrase_2 .= "|) \n";
     file_put_contents("sessions.txt", $phrase_2);
     
     $_SESSION["username"] = $_POST['login'];
@@ -61,7 +61,7 @@ $current .= '|';
 $current .= $_POST['name'];
 $current .= '|';
 $current .= 'Пользователь';
-$current .= '|)';
+$current .= "|)\n";
 
 file_put_contents($file, $current);
 
