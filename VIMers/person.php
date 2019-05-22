@@ -5,9 +5,13 @@ if(!isset($_COOKIE["username"]) && !isset($_SESSION["username"])){
 }
 $_SESSION['game'] = "false";
 $phrase = file_get_contents("logs.txt");
-				
-				$finding = $_COOKIE["username"];
-				
+				if(isset($_COOKIE['username'])){
+					$finding = $_COOKIE["username"];
+				}
+				else{
+					
+					$finding = $_SESSION["username"];
+				}
 				$first_pos =  strpos($phrase,$finding);
 				$second_pos = strpos($phrase,"|", $first_pos+1);
 				$third_pos = strpos($phrase,"|", $second_pos+1);				
@@ -15,7 +19,13 @@ $phrase = file_get_contents("logs.txt");
 				$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
 
 				if(isset($_POST["No"])){
+					if(isset($_COOKIE["username"])){
 					file_put_contents('results/'.$_COOKIE['username'].'.txt',file_get_contents('results/'.$_COOKIE['username'].'.txt')." Ваш ответ: Нет \n");
+					
+					}
+					else{
+						file_put_contents('results/'.$_SESSION['username'].'.txt',file_get_contents('results/'.$_SESSION['username'].'.txt')." Ваш ответ: Нет \n");
+					}
 					
 				}
 				
@@ -46,8 +56,8 @@ $phrase = file_get_contents("logs.txt");
 </head>
 <body>
     <div class = "header_personal">
-        <div class = "img_logo_a"><a href = "welcome_page.php"><div class = "img_logo"><img  src = "images/logo_1.png"></div></a></div>>      
-        <div class = "img_icon"><a class = "icon_login" href = "person.php?quit=true"><img src = "images/log-out.png" width = "100px"></a></div>			/========================/
+        <div class = "img_logo_a"><a href = "welcome_page.php"><div class = "img_logo"><img  src = "images/logo_1.png"></div></a></div>      
+        <div class = "img_icon"><a class = "icon_login" href = "person.php?quit=true"><img src = "images/log-out.png" width = "100px"></a></div>		
     <div class = "main_info">
         
         <div class = "description_in_profile">
@@ -72,7 +82,15 @@ $phrase = file_get_contents("logs.txt");
              <div class = "header_profile_small">
                 <p>Логин</p>
              </div>
-                <p><?php echo $_COOKIE['username'];?></p>
+                <p><?php 
+					if(isset($_COOKIE["username"])){
+						echo $_COOKIE['username'];
+					}
+					else{
+						echo $_SESSION['username'];
+					}
+					?>
+				</p>
         </div>
         
 	<div class = "description_in_profile">
@@ -91,7 +109,7 @@ $phrase = file_get_contents("logs.txt");
     </div>
 	<?php if(isset($_GET["quit"])){
 			echo '
-				<div style = "position:absolute;background-color:white;border-radius:30px;width:50%;height:40%;left:25%;padding:30px;top:30%;">
+				<div style = "position:absolute; border-color:black; border-style: solid; background-color:white;border-radius:30px;width:50%;height:40%;left:25%;padding:30px;top:30%;">
 					<fieldset>
 						<legend align = "center">Вы действительно хотите выйти?</legend>
 						<form align = "center" method = "post" action = "auth_checker.php?quit=true"><input type = "submit" value = "Да"></form>
@@ -110,10 +128,14 @@ $phrase = file_get_contents("logs.txt");
 		}
 		?>
     <?php
-				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Преподаватель" || substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Админ"){
+				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Преподаватель"){
 					$phrase_2 = file_get_contents("sessions.txt");
+					if(isset($_COOKIE['username'])){
 					$finding = $_COOKIE["username"];
-
+					}
+					else{
+						$finding = $_SESSION["username"];
+					}
 					$first_pos_2 =  strpos($phrase_2,$finding);
 					$second_pos_2 = strpos($phrase_2,"|", $first_pos_2+1);
 					$third_pos_2 = strpos($phrase_2,"|", $second_pos_2+1);
@@ -139,7 +161,22 @@ $phrase = file_get_contents("logs.txt");
 						echo '"></form>';
 						echo '</div>';
 				}
+				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Админ"){
+					echo '<div class = "bottom_left_border">
+							<h4>Сменить пароль регистрации</h4>
+							<form action = "change_global_password.php" method = "post"><input type = "text" name = "new_password_teacher" placeholder =';
+					echo file_get_contents("password.txt");		
+					echo '>';										
+					echo '</form>
+								</div>';
+					
+					
+				}
 				if(substr($phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Пользователь"){																																		
+					echo '<div class = "bottom_left">
+            <a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
+            </div>
+    ';
 					echo '<div style = "position: absolute;
 							right:5%;
 							bottom:5%;
@@ -183,9 +220,6 @@ $phrase = file_get_contents("logs.txt");
 					}
 				?>
 
-    <div class = "bottom_left">
-            <a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
-            </div>
         
 
 </body>

@@ -5,6 +5,8 @@ session_start();
 
 if((!isset($_COOKIE["username"]) && !isset($_SESSION["username"])) || $_SESSION['game'] == "false"){
 	header("Location:welcome_page.php");
+
+	
 }
 
 if(isset($_COOKIE['username'])){
@@ -47,7 +49,7 @@ $_answer = $_first * $_second;
 
 
 	if(isset($_POST["ans"])){
-		$user_results .=   " Ваш ответ: ".$_POST['answer'];
+		$user_results .=   " Ваш ответ: ".$_POST['ans'];
 
 		if($_POST["ans"] == $_POST["answer"]){
 		$_cur_state = true;
@@ -124,8 +126,8 @@ $_answer = $_first * $_second;
 				$user_results .=  $_first- $_second;
 			}	
 			if($_symb == 2){ 
-				echo $_first." * ".$_second." =";
-				$user_results .=   $_first." * ".$_second." = ";
+				echo $_first." × ".$_second." =";
+				$user_results .=   $_first." × ".$_second." = ";
 				$user_results .=   $_first * $_second;
 			}
 
@@ -151,7 +153,7 @@ $_answer = $_first * $_second;
 	<?php
 		if(isset($_GET["quit"])){
 			echo '
-				<div style = "position:absolute;background-color:white;border-radius:30px;width:50%;height:40%;left:25%;padding:30px;top:31%;">
+				<div style = "border-style: solid; position:absolute;background-color:white;border-radius:30px;width:50%;height:40%;left:25%;padding:30px;top:31%;">
 					<fieldset>
 						<legend align = "center">Вы действительно хотите выйти?</legend>
 						<form align = "center" method = "post" action = "person.php"><input type = "submit" value = "Да" name = "No"></form>

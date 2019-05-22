@@ -18,7 +18,57 @@ body{
     padding-right:10%;
 }
 
-
+.block_of_text_left{
+    position: absolute;
+    font-size:19.5px;
+    width:7%;
+    left:5%;
+    top:5%;
+    height:auto;
+    display:block;
+    border-radius: 15px;
+    background-color: white;
+    padding-left:10%;
+    padding-right:10%;
+}
+#record{
+    position:fixed;
+    font-size:90%;
+    left:1%;
+    top:5px;
+    border-radius: 5px;
+    backgroud-color: lightblue;        
+    border-color: black;
+    
+}
+.block_of_text_middle{
+    
+    position: absolute;
+    margin-bottom:100px;
+    font-size:19.5px;
+    width:14%;
+    left:33%;
+    top:5%;
+    height:auto;
+    display:block;
+    border-radius: 15px;
+    background-color: white;
+    padding-left:10%;
+    padding-right:10%;
+}
+.block_of_text_right{
+    position: absolute;
+    font-size:19.4px;
+    width:7%;
+    right:5%;
+    top:5%;
+    height:auto;
+    display:block;
+    border-radius: 15px;
+    background-color: white;
+    padding-left:10%;
+    padding-right:10%;
+}
 #reg_teach{
     position: relative;
     top:50px;
@@ -83,6 +133,13 @@ body{
     
     
 }
+
+.blank{
+    height:50px;
+    display:block;
+    width:10px;
+    
+}
 #center_game{
     position: relative;
     width:20%;
@@ -129,7 +186,7 @@ body{
     
 }
 .backimg{
-    position: absolute;
+    position: fixed;
     right:5%;
     bottom:5%;
     
@@ -168,7 +225,6 @@ body{
     left:0;
     background-color: black; 
     border-style:solid;
-    
     height:auto;
     border-width:1px;
     border-color:black;

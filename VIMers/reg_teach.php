@@ -17,9 +17,9 @@ if(isset($_COOKIE["username"]) && isset($_SESSION["username"])){
 <?php
 if($_POST["reg"] != file_get_contents('password.txt')){
     
-	if($_GET["reg"] == "fail"){
-		if(isset($_GET["reg"])){
-			if($_GET["reg"] == "fail"){
+	if($_SESSION["reg"] == "fail"){
+		if(isset($_SESSION["reg"])){
+			if($_SESSION["reg"] == "fail"){
 				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
 	}}
     echo '<fieldset>
@@ -59,8 +59,8 @@ if($_POST["reg"] != file_get_contents('password.txt')){
 	
 				}
 else{
-    if(isset($_GET["reg"])){
-			if($_GET["reg"] == "fail"){
+    if(isset($_SESSION["reg"])){
+			if($_SESSION["reg"] == "fail"){
 				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
 	}}
     echo '<fieldset>

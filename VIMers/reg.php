@@ -28,7 +28,7 @@ if(isset($_COOKIE["username"]) && isset($_SESSION["username"])){
 			<input type = "submit">
 		</form>
 	</fieldset>
-	<div id = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
+	<div class = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
         <div id = "reg_teach"><a style="text-decoration:none;" href = "reg_teach.php"><p style = "color:red;">Регистрация учителя</p></a></div>
 
 </body>

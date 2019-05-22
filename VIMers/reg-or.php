@@ -20,7 +20,10 @@ if(isset($_POST["name_teacher"])){
     $current .= '|)';
 
     file_put_contents($file, $current);
-
+	if(isset($_SESSION["reg"])){
+		session_destroy();
+		
+	}
     $phrase_2 = file_get_contents("sessions.txt");
     $phrase_2 .= "(|";
     $phrase_2 .= $_POST["login"];
@@ -31,12 +34,11 @@ if(isset($_POST["name_teacher"])){
     $_SESSION["username"] = $_POST['login'];
     
     setcookie("username", $_POST["login"], time() + 3600 * 24);
-    header('Location:welcome_page.php');    
-    
-    
+    header('Location:welcome_page.php');        
         }
 	else{
-		header('Location:reg_teach.php?reg=fail');
+		$_SESSION['reg'] = "fail";
+		header('Location:reg_teach.php');
 		}   
  
 		}

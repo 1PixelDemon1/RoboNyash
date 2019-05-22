@@ -1,14 +1,5 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<style>
-    body{
-        background-image: url(images/background_1.jpg);
-        
-        
-        
-    }
-    
-</style>
 
 
 <head>
@@ -18,8 +9,11 @@
     
 </head>
 <body>
-    <fieldset style = "position: absolute; width:50%; left:25%;top:40%;">        
-        <legend align = "center" style = "color:white;">Авторизуйтесь</legend>
+    <div class = "header">
+        <img id = "img_logo" src = "images/logo_1.png">
+    </div>
+    <fieldset style = "position: absolute; width:30%; left:35%;top:40%;">        
+        <legend align = "center" style = "color:black;">Авторизуйтесь</legend>
         <form action = "auth_checker.php" method = "post" autocomplete="on">
             <div style = "position:relative;left:35%;">
                 <input  type = "text" style = "width: 30%; " name = "login" placeholder="Логин" required>
@@ -32,7 +26,7 @@
     </fieldset>
 	<a href = "reg.php"><div id = "middle_down">
 		<p style = "color:red;">Зарегестрируйтесь</p>
-			</div></a>		
+			</div></a>
     <div class = "backimg"><a href = "welcome_page.php"><img src = "images/back_arrow.png" width = "150px"></a></div>
     
     

@@ -22,19 +22,21 @@ else{
     <link href = "style.css" rel = "stylesheet">
 </head>
 <body>
-    
     <div class = "block_of_text">
+    <div class = "block_of_text_left">
         <p>            
             <?php 
             while(strpos($text[$i],"Нет") == FALSE){
                 if(strpos($text[$i],"Неверно") != FALSE){
-                    print(str_replace("Неверно", "",$text[$i]));
-                    echo '<span style="color: red">'."Неверно".'</span>';                    
+                    
+			print(substr($text[$i], 0, strpos($text[$i], "В")));
+		
                 }
                 if(strpos($text[$i],"Верно") != FALSE){
-                    print(str_replace("Верно", "",$text[$i]));
-                    echo '<span style="color: green">'."Верно".'</span>';                    
+                    print(substr($text[$i], 0, strpos($text[$i], "В")));
+                    
                 }
+	       echo "<hr noshade>";
                 echo "<br><br>";
                 $result_text.= $text[$i];
                 $i+=1;
@@ -49,15 +51,73 @@ else{
                     $last_pos = strpos($result_text,"Верно",$last_pos)+1;
                     $number_of_right +=1;
                 }
-                echo '<br><br>';
-                echo "Грамотность:".($number_of_right/($number_of_right + $number_of_wrong)*100)."%";
                 
                 ?>
         </p>        
-    </div>    
+    </div>
+	<div class = "block_of_text_middle">
+		<p>            
+            <?php 
+		$i = 0;
+				while(strpos($text[$i],"Нет") == FALSE){
+                if(strpos($text[$i],"Неверно") != FALSE){
+                    
+			echo '<span style = "color:red;">';
+			echo (substr($text[$i],strpos($text[$i], "В"),strpos($text[$i], "Н")  -  strpos($text[$i], "В")));
+			echo '</span>';
+		
+                }
+                if(strpos($text[$i],"Верно") != FALSE){
+			echo '<span style = "color: green;">';
+			echo (substr($text[$i],strpos($text[$i], "В"),strpos($text[$i], "В",  strpos($text[$i], "В") + 1) -  strpos($text[$i], "В")));
+			echo '</span>';
+                    
+                }
+	       echo "<hr noshade>";
+                echo "<br><br>";
+                
+                $i+=1;
+                }                                                
+                ?>
+        </p>        
+    </div>
+	<div class = "block_of_text_right">
+		<p>
+			<?php	
+					$i = 0;
+					$last_pos = 0;
+					while(strpos($text[$i],"Нет") == FALSE){
+					if(strpos($text[$i],"Неверно") != FALSE){							
+							echo '<span style="color: red">'."Неверно ✖".'</span>';                    
+						}
+					if(strpos($text[$i],"Верно") != FALSE){							
+							echo '<span style="color: green">'."Верно ✔".'</span>';                    
+						}
+					echo "<hr noshade>";
+					echo "<br><br>";					
+					$i+=1;
+					}									
+				?>
+			
+			
+		</p>
+    </div>
+	<div id = "record">
+		<?php
+			if($number_of_right + $number_of_wrong != 0){
+				echo '<br><br>';
+				echo "<p>Грамотность:".round($number_of_right/($number_of_right + $number_of_wrong)*100 , 0)."%</p>";
+				echo "<hr noshade color = black>";
+				
+			}
+			?>
+	</div>
+</div>
     <div class = "backimg">
         <a href = "person.php"><img src = "images/back_arrow.png" width = "50px"></a>
         
     </div>
+	
+	
 </body>
     

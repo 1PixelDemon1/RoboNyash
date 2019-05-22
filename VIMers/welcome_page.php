@@ -32,12 +32,12 @@
 		background-color: darkgray;
 		height:auto;">
 			<a href = "about_us.php"><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">О нас</p></div></a>
-			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Вк создателя</p></div></a>
-			<a href = ""><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Описание</p></div></a>
+			<a href = "https://vk.com/kvantorium74"><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Вк организации</p></div></a>
+			<a href = "description.php"><div class = "description_in_profile"><p style = "font-size:75%; color: black; font-family: Fantasy;">Описание</p></div></a>
     </div>
     </div>
     <div class = 'footer'>
-        <p>VimersGroup(c) Made Specially For Kvantorium</p>
+        <p>VimersGroup© Made Specially For Kvantorium</p>
     </div>
 </body>
 

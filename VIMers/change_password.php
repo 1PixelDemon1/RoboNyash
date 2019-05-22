@@ -2,9 +2,12 @@
     
     if(isset($_POST["new_password"])){
         $phrase = file_get_contents("logs.txt");
-				
-        $finding = $_COOKIE["username"];
-
+	if(isset($_COOKIE['username'])){
+			$finding = $_COOKIE["username"];
+	}
+	else{
+		$finding = $_SESSION["username"];		
+	}
         $first_pos =  strpos($phrase,$finding);
         $second_pos = strpos($phrase,"|", $first_pos+1);
         $third_pos = strpos($phrase,"|", $second_pos+1);				
