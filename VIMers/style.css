@@ -159,6 +159,11 @@ body{
     
 }
 
+.description_in_profile:hover{
+    background-color: lightblue;
+    border-radius: 5px;        
+}
+
 .description_in_profile{
     
     position: relative;
