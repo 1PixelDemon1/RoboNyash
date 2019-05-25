@@ -97,7 +97,7 @@ $phrase = file_get_contents("logs.txt");
              <div class = "header_profile_small">
                 <p>Сменить пароль</p>
              </div>
-		<p><form action = "change_password.php" method = "post"><input type = "text" placeholder="Новый пароль" style = 'width:70%;' name ="new_password" ><input type = "submit" style = 'width:25%;' value = "OK"></form></p>
+		<p><form action = "change_password.php" method = "post"><input type = "text" placeholder="Новый пароль" style = 'width:70%;' name ="new_password" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"><input type = "submit" style = 'width:25%;' value = "OK"></form></p>
         </div>
         
 			
@@ -174,7 +174,7 @@ $phrase = file_get_contents("logs.txt");
 				}
 				if(substr($phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Пользователь"){																																		
 					if(isset($_COOKIE['username'])){						
-						if(file_get_contents("results/".$_COOKIE["username"].".txt") != ""){
+						if(file_get_contents("results/".$_COOKIE["username"].".txt") != "" && (strpos(file_get_contents("results/".$_COOKIE["username"].".txt"),"В") != FALSE || strpos(file_get_contents("results/".$_COOKIE["username"].".txt"),"Н") != FALSE)){
 							header("Location:person.php");
 							echo '<div class = "bottom_left">
 							<a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
@@ -183,7 +183,7 @@ $phrase = file_get_contents("logs.txt");
 						}
 					}
 					else{						
-						if(file_get_contents("results/".$_SESSION["username"].".txt")  != ""){
+						if(file_get_contents("results/".$_SESSION["username"].".txt")  != "" && (strpos(file_get_contents("results/".$_SESSION["username"].".txt"),"В") != FALSE || strpos(file_get_contents("results/".$_SESSION["username"].".txt"),"Н") != FALSE)){
 							echo '<div class = "bottom_left">
 							<a href = "results.php" style = "text-decoration: none;"><p style = "color: black;">Посмотреть результаты</p></a>                        
 							</div>';

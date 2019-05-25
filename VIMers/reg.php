@@ -22,9 +22,9 @@ if(isset($_COOKIE["username"]) && isset($_SESSION["username"])){
 	<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
-			<p><input required style = "width:30%;"type = "text" placeholder="Имя" name = "name"></p>
-			<p><input required style = "width:30%;" type = "text" placeholder="Логин" name = "login"></p>
-			<p><input required style = "width:30%;" type = "text" placeholder="Пароль" name = "password"></p>
+			<p><input required style = "width:30%;"type = "text" placeholder="Имя" pattern = "^[А-Яа-яЁё]+$" name = "name"></p>
+			<p><input required style = "width:30%;" type = "text" placeholder="Логин" name = "login" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
+			<p><input required style = "width:30%;" type = "text" placeholder="Пароль" name = "password" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
 			<input type = "submit">
 		</form>
 	</fieldset>

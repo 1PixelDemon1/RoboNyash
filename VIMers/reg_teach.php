@@ -25,9 +25,9 @@ if($_POST["reg"] != file_get_contents('password.txt')){
     echo '<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
-			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" required></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required></p>
+			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" pattern = "^[А-Яа-яЁё]+$"  required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$" required></p>
 			<input type = "submit">
 		</form>
 	</fieldset>';
@@ -40,7 +40,7 @@ if($_POST["reg"] != file_get_contents('password.txt')){
 	echo '
             <div class = "middle_center white_background_borders">
                 <form align = "center" action = "reg_teach.php" method="post">
-                    <input  required id = "long_line" type = "password" name = "reg" placeholder = "Введите пароль регестрации">
+                    <input  required id = "long_line" type = "password" name = "reg" placeholder = "Введите пароль регестрации" autofocus>
                     <input type = "submit" value = "Проверить">
                     </form>';
             if(isset($_POST["reg"])){
@@ -66,9 +66,9 @@ else{
     echo '<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
-			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" required></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required></p>
+			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" pattern = "^[А-Яа-яЁё]+$" required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
 			<input type = "submit">
 		</form>
 	</fieldset>';

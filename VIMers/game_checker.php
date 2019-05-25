@@ -14,11 +14,11 @@
 		if($_POST["session_name"] == $replace){
 			if(isset($_COOKIE["username"]))
 			{
-				file_put_contents("results/".$_COOKIE["username"].".txt"," ");
+				file_put_contents("results/".$_COOKIE["username"].".txt","");
 				
 				}
 			else{
-				file_put_contents("results/".$_SESSION["username"].".txt"," ");
+				file_put_contents("results/".$_SESSION["username"].".txt","");
 				
 			}
 			header("Location:game.php");

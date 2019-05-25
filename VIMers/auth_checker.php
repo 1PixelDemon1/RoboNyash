@@ -18,7 +18,7 @@ $phrase = file_get_contents("logs.txt");
         setcookie("username", $_POST["login"], time() + 3600 * 24);
         $_SESSION["username"] = $_POST["password"];
 
-        header('Location:/welcome_page.php');
+        header('Location:/data_delete.php');
     
 	    }
 		else{
@@ -35,7 +35,7 @@ $phrase = file_get_contents("logs.txt");
 }
 else{
     if($_GET['quit'] == "true"){
-        header('Location:/welcome_page.php');
+        header('Location:/data_delete.php');
         unset($_COOKIE['username']);
         
         setcookie('username', null, -1, '/');
