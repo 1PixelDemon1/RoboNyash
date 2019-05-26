@@ -1,11 +1,50 @@
 <?php
 session_start();
+
+$names = array();
+	
+	$complete = False;
+	
+	$phrase = file_get_contents("logs.txt");
+		
+	$first_pos =  strpos($phrase,'|', 0) + 1;
+	$second_pos = strpos($phrase,"|", $first_pos+1);
+	$third_pos = strpos($phrase,"|", $second_pos+1);				
+	$fourth_pos = strpos($phrase,"|", $third_pos+1);
+	$fivth_pos = strpos($phrase,"|", $fourth_pos+1);		
+	
+	$i = 0;
+	$name = substr($phrase, $first_pos, $second_pos - $first_pos);
+	$names[0] = $name;						
+	
+	
+	while(strpos($phrase,"|", $fivth_pos + 1) != FALSE){	
+		
+		$first_pos =  strpos($phrase,'|', $fivth_pos+ 1) + 1; 
+		$second_pos = strpos($phrase,"|", $first_pos+1);
+		$third_pos = strpos($phrase,"|", $second_pos+1);				
+		$fourth_pos = strpos($phrase,"|", $third_pos+1);
+		$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
+		
+		$name = substr($phrase, $first_pos, $second_pos - $first_pos);
+		$i+=1;
+		$names[$i] = $name;						
+				
+	}
+	
+
+
 if(isset($_POST["name_teacher"])){
     $file = 'logs.txt';
-
-
-    if($_POST['login'] !="" && $_POST['password'] !="" && $_POST['name_teacher'] !=""){
-    if(strpos(file_get_contents('logs.txt'),$_POST["login"]) === FALSE){
+	$complete = False;
+	for($h = 0; $h < count($names); $h ++){
+		if($_POST["login"] == $names[$h]){
+			$complete = True;
+			
+		}		
+		
+	}
+    if($complete == FALSE){
 
     $current = file_get_contents($file);
 
@@ -41,16 +80,25 @@ if(isset($_POST["name_teacher"])){
 		header('Location:reg_teach.php');
 		}   
  
-		}
+	
+	
+
+	
 }
 else{
 if(isset($_POST["login"])){
 $file = 'logs.txt';
 
 
-if($_POST['login'] !="" && $_POST['password'] !="" && $_POST['name'] !=""){
-if(strpos(file_get_contents('logs.txt'),$_POST["login"]) === FALSE){
-
+$complete = False;
+	for($h = 0; $h < count($names); $h ++){
+		if($_POST["login"] == $names[$h]){
+			$complete = True;
+			
+		}		
+		
+	}
+if($complete == FALSE){
 $current = file_get_contents($file);
 
 $current .= "(|";
@@ -74,15 +122,13 @@ setcookie("username", $_POST["login"], time() + 3600 * 24);
 header('Location:welcome_page.php');
 
 
+
 }
 else{
 	header('Location:reg.php?reg=fail');
 }
-}
-else{
-	header('Location:reg.php?reg=empty');
-	
-}
+
+
 }
 else{
 	header('Location:welcome_page.php');

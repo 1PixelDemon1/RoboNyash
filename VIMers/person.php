@@ -3,6 +3,8 @@ session_start();
 if(!isset($_COOKIE["username"]) && !isset($_SESSION["username"])){
 	header("Location:welcome_page.php");
 }
+
+
 $_SESSION['game'] = "false";
 $phrase = file_get_contents("logs.txt");
 				if(isset($_COOKIE['username'])){
@@ -12,12 +14,71 @@ $phrase = file_get_contents("logs.txt");
 					
 					$finding = $_SESSION["username"];
 				}
-				$first_pos =  strpos($phrase,$finding);
-				$second_pos = strpos($phrase,"|", $first_pos+1);
-				$third_pos = strpos($phrase,"|", $second_pos+1);				
-				$fourth_pos = strpos($phrase,"|", $third_pos+1);
-				$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
+				
+				
+				
+					$complete = FALSE;
+	
+					
+	$names = array();
+	$password = array();
+	$names_c = array();
+	$statuses = array();
+	
+	
+		
+	$first_pos =  strpos($phrase,'|', 0) + 1;
+	$second_pos = strpos($phrase,"|", $first_pos+1);
+	$third_pos = strpos($phrase,"|", $second_pos+1);				
+	$fourth_pos = strpos($phrase,"|", $third_pos+1);
+	$fivth_pos = strpos($phrase,"|", $fourth_pos+1);		
+	
+	$i = 0;
+	$name = substr($phrase, $first_pos, $second_pos - $first_pos);
+	$status = substr($phrase, $fourth_pos + 1, $fivth_pos - $fourth_pos - 1);
+	$name_c = substr($phrase, $third_pos + 1, $fourth_pos - $third_pos - 1);
+	
+	
+	$statuses[0] = $status;						
+	$names[0] = $name;						
+	$names_c[0] = $name_c;
+	
+	
+	
+	while(strpos($phrase,"|", $fivth_pos + 1) != FALSE){			
+		$first_pos =  strpos($phrase,'|', $fivth_pos+ 1) + 1; 
+		$second_pos = strpos($phrase,"|", $first_pos+1);
+		$third_pos = strpos($phrase,"|", $second_pos+1);				
+		$fourth_pos = strpos($phrase,"|", $third_pos+1);
+		$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
+		
+		
+		$status = substr($phrase, $fourth_pos + 1, $fivth_pos - $fourth_pos - 1);
+		
+		$name_c = substr($phrase, $third_pos + 1,$fourth_pos - $third_pos - 1);
+		
+		$name = substr($phrase, $first_pos,$second_pos - $first_pos);
+		
+		$i+=1;
+		
+		$statuses[$i] = $status;						
+		$names[$i] = $name;						
+		$names_c[$i] = $name_c;
+	
+	}
+	
+	
+	for($f = 0; $f < count($names); $f ++){
+		if($names[$f] == $finding){
+			$number = $f;
+			
+		}
+		
+		
+	}
+	
 
+				
 				if(isset($_POST["No"])){
 					if(isset($_COOKIE["username"])){
 					file_put_contents('results/'.$_COOKIE['username'].'.txt',file_get_contents('results/'.$_COOKIE['username'].'.txt')." Ваш ответ: Нет \n");
@@ -65,7 +126,7 @@ $phrase = file_get_contents("logs.txt");
                 <p>Имя</p>
             </div>
                 <p><?php															
-			echo substr( $phrase, $third_pos+1 ,$fourth_pos - $third_pos-1);              	 
+			echo $names_c[$number];              	 
 		?></p>
         </div>
         
@@ -74,7 +135,7 @@ $phrase = file_get_contents("logs.txt");
                 <p>Статус</p>
              </div>
                 <p><?php															
-			echo substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1);              	 
+			echo $statuses[$number];
 		?></p>
         </div>
         
@@ -128,7 +189,7 @@ $phrase = file_get_contents("logs.txt");
 		}
 		?>
     <?php
-				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Преподаватель"){
+				if($statuses[$number] == "Преподаватель"){
 					$phrase_2 = file_get_contents("sessions.txt");
 					if(isset($_COOKIE['username'])){
 					$finding = $_COOKIE["username"];
@@ -161,7 +222,7 @@ $phrase = file_get_contents("logs.txt");
 						echo '"></form>';
 						echo '</div>';
 				}
-				if(substr( $phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Админ"){
+				if($statuses[$number] == "Админ"){
 					echo '<div class = "bottom_left_border">
 							<h4>Сменить пароль регистрации</h4>
 							<form action = "change_global_password.php" method = "post"><input type = "text" name = "new_password_teacher" placeholder =';
@@ -172,7 +233,7 @@ $phrase = file_get_contents("logs.txt");
 					
 					
 				}
-				if(substr($phrase, $fourth_pos+1,$fivth_pos - $fourth_pos-1) == "Пользователь"){																																		
+				if($statuses[$number] == "Пользователь"){																																		
 					if(isset($_COOKIE['username'])){						
 						if(file_get_contents("results/".$_COOKIE["username"].".txt") != "" && (strpos(file_get_contents("results/".$_COOKIE["username"].".txt"),"В") != FALSE || strpos(file_get_contents("results/".$_COOKIE["username"].".txt"),"Н") != FALSE)){
 							header("Location:person.php");

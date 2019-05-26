@@ -17,14 +17,17 @@ if(isset($_COOKIE["username"]) && isset($_SESSION["username"])){
 			if($_GET["reg"] == "fail"){
 				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
 			}
+			if($_GET["reg"] == "failure"){
+				echo '<p align = "center" style = "color:red; font-family:arial;">Имя пользователя логин и пароль не должны совпадать</p>';
+			}
 		}
 		?>
 	<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
 			<p><input required style = "width:30%;"type = "text" placeholder="Имя" pattern = "^[А-Яа-яЁё]+$" name = "name"></p>
-			<p><input required style = "width:30%;" type = "text" placeholder="Логин" name = "login" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
-			<p><input required style = "width:30%;" type = "text" placeholder="Пароль" name = "password" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
+			<p><input required style = "width:30%;" type = "text" placeholder="Логин" name = "login" pattern = "^[A-Za-z0-9]+$"></p>
+			<p><input required style = "width:30%;" type = "text" placeholder="Пароль" name = "password" pattern = "^[A-Za-z0-9]+$"></p>
 			<input type = "submit">
 		</form>
 	</fieldset>

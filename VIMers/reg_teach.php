@@ -17,17 +17,21 @@ if(isset($_COOKIE["username"]) && isset($_SESSION["username"])){
 <?php
 if($_POST["reg"] != file_get_contents('password.txt')){
     
-	if($_SESSION["reg"] == "fail"){
+	if($_SESSION["reg"] == "fail" || $_SESSION["reg"] == "failure"){
 		if(isset($_SESSION["reg"])){
 			if($_SESSION["reg"] == "fail"){
 				echo '<p align = "center" style = "color:red; font-family:arial;">Это имя пользователя уже занято</p>';
-	}}
+		}
+		if($_SESSION["reg"] == "failure"){
+				echo '<p align = "center" style = "color:red; font-family:arial;">Имя пользователя логин и пароль не должны совпадать</p>';
+		}
+			}
     echo '<fieldset>
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
 			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" pattern = "^[А-Яа-яЁё]+$"  required></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" pattern = "^[A-Za-zА-Яа-яЁё0-9]+$" required></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required pattern = "^[A-Za-z0-9]+$"></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" pattern = "^[A-Za-z0-9]+$" required></p>
 			<input type = "submit">
 		</form>
 	</fieldset>';
@@ -67,8 +71,8 @@ else{
 		<legend>Зарегестрируйтесь сейчас</legend>
 		<form action = "reg-or.php" method = "POST">
 			<p><input style = "width:30%;"type = "text" placeholder="Имя" name = "name_teacher" pattern = "^[А-Яа-яЁё]+$" required></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
-			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required pattern = "^[A-Za-zА-Яа-яЁё0-9]+$"></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Логин" name = "login" required pattern = "^[A-Za-z0-9]+$"></p>
+			<p><input style = "width:30%;" type = "text" placeholder="Пароль" name = "password" required pattern = "^[A-Za-z0-9]+$"></p>
 			<input type = "submit">
 		</form>
 	</fieldset>';

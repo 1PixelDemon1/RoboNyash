@@ -2,21 +2,82 @@
     
     if(isset($_POST["new_password"])){
         $phrase = file_get_contents("logs.txt");
-	if(isset($_COOKIE['username'])){
-			$finding = $_COOKIE["username"];
+				if(isset($_COOKIE['username'])){
+					$finding = $_COOKIE["username"];
+				}
+				else{
+					
+					$finding = $_SESSION["username"];
+				}
+				
+				
+				
+					$complete = FALSE;
+	
+					
+	$names = array();
+	$password = array();
+	$names_c = array();
+	$statuses = array();
+	
+	
+		
+	$first_pos =  strpos($phrase,'|', 0) + 1;
+	$second_pos = strpos($phrase,"|", $first_pos+1);
+	$third_pos = strpos($phrase,"|", $second_pos+1);				
+	$fourth_pos = strpos($phrase,"|", $third_pos+1);
+	$fivth_pos = strpos($phrase,"|", $fourth_pos+1);		
+	
+	$i = 0;
+	$name = substr($phrase, $first_pos, $second_pos - $first_pos);
+	$status = substr($phrase, $fourth_pos + 1, $fivth_pos - $fourth_pos - 1);
+	$name_c = substr($phrase, $third_pos + 1, $fourth_pos - $third_pos - 1);
+	$password = substr($phrase, $second_pos + 1,$third_pos - $second_pos - 1);
+	
+	$statuses[0] = $status;						
+	$names[0] = $name;						
+	$names_c[0] = $name_c;
+	$passwords[0] = $password;
+	
+	
+	while(strpos($phrase,"|", $fivth_pos + 1) != FALSE){			
+		$first_pos =  strpos($phrase,'|', $fivth_pos+ 1) + 1; 
+		$second_pos = strpos($phrase,"|", $first_pos+1);
+		$third_pos = strpos($phrase,"|", $second_pos+1);				
+		$fourth_pos = strpos($phrase,"|", $third_pos+1);
+		$fivth_pos = strpos($phrase,"|", $fourth_pos+1);
+		
+		
+		$status = substr($phrase, $fourth_pos + 1, $fivth_pos - $fourth_pos - 1);
+		
+		$name_c = substr($phrase, $third_pos + 1,$fourth_pos - $third_pos - 1);
+		
+		$name = substr($phrase, $first_pos,$second_pos - $first_pos);
+		$password = substr($phrase, $second_pos + 1,$third_pos - $second_pos - 1);
+		$i+=1;
+		
+		$statuses[$i] = $status;						
+		$names[$i] = $name;						
+		$names_c[$i] = $name_c;
+		$passwords[$i] = $password;
 	}
-	else{
-		$finding = $_SESSION["username"];		
+	
+	
+	for($f = 0; $f < count($names); $f ++){
+		if($names[$f] == $finding){
+			$number = $f;
+			
+		}
+		
+		
 	}
-        $first_pos =  strpos($phrase,$finding);
-        $second_pos = strpos($phrase,"|", $first_pos+1);
-        $third_pos = strpos($phrase,"|", $second_pos+1);				
-        $fourth_pos = strpos($phrase,"|", $third_pos+1);
-        $fivth_pos = strpos($phrase,"|", $fourth_pos+1);
-
-        $old_password = substr( $phrase, $second_pos+1 ,$third_pos - $second_pos-1);
-        
-        $text = file_get_contents("logs.txt");
+	
+	$old_password = $passwords[$number];
+         $text = file_get_contents("logs.txt");
+	
+        echo $old_password;
+		
+	$text = file_get_contents("logs.txt");
         file_put_contents("logs.txt", str_replace($old_password, $_POST["new_password"], $text));
         header("Location:person.php");
     }else{
