@@ -66,6 +66,14 @@
 	for($f = 0; $f < count($names); $f ++){
 		if($names[$f] == $finding){
 			$number = $f;
+			$all_text = file("logs.txt");
+			$first_pos =  strpos($all_text[$number],'|', 0) + 1;
+			$second_pos = strpos($all_text[$number],"|", $first_pos+1);
+			$third_pos = strpos($all_text[$number],"|", $second_pos+1);				
+			$fourth_pos = strpos($all_text[$number],"|", $third_pos+1);
+			$fivth_pos = strpos($all_text[$number],"|", $fourth_pos+1);		
+			$password = substr($all_text[$number], 0 ,$second_pos+1).$_POST["new_password"].substr($all_text[$number], $third_pos);
+				
 			
 		}
 		
@@ -75,10 +83,10 @@
 	$old_password = $passwords[$number];
          $text = file_get_contents("logs.txt");
 	
-        echo $old_password;
+      
 		
 	$text = file_get_contents("logs.txt");
-        file_put_contents("logs.txt", str_replace($old_password, $_POST["new_password"], $text));
+        file_put_contents("logs.txt", str_replace($all_text[$number], $password, $text));
         header("Location:person.php");
     }else{
         header("Location:welcome_page.php");
