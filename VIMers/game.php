@@ -142,7 +142,7 @@ $_answer = $_first * $_second;
          
     </div>
 	<div id = "center_form">
-		<form action = "game.php" method = "POST">
+                                    <form action = "game.php" method = "POST">
 			<input  name = "ans" type = "number" style = "width:20%;height:10%;font-size:100%;" autofocus required placeholder="Ответ:">
 			<input type = "text" placeholder="SEND" name = "answer" value = "<?php
 				echo $_answer;
